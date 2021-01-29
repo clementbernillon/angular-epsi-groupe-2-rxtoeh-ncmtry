@@ -46,18 +46,18 @@ export class CanActivateGuard implements CanActivate {
         } else if ( 'roles' in response ) {
           if (!response.roles.includes('ROLE_ADMIN') && ('admin' in next.data) ) {
             this.router.navigate(['dash/home']);
-            this._snackBar.open("Vous n'avez pas accès au page admin", "", {
-              duration: 4000,
+            this._snackBar.open("Accès refuser","",{
+              duration: 2000,
             });
             return false;
           } else if(response.roles.includes('ROLE_ADMIN')){
-            this._snackBar.open("Vous êtes en mode Admin", "", {
-              duration: 4000,
+            this._snackBar.open("Mode Admin","", {
+              duration: 2000,
             });
             return true;
           }
-          this._snackBar.open("Bienvenue", "", {
-            duration: 4000,
+          this._snackBar.open("Bienvenue","", {
+            duration: 2000,
           });
           return true;
         }
